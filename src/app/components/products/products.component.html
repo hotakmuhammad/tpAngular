@@ -1,0 +1,15 @@
+
+
+<div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md pt-5 mt-5">
+    <h2 class="text-xl font-bold mb-4">Liste des Produits</h2>
+    <ul>
+    <li *ngFor="let product of products">
+        <div class="m-4 p-4">
+
+            <a [routerLink]="['/products', product.id]" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
+                {{ product.name }}
+            </a>
+        </div>
+    </li>
+    </ul>
+</div>
