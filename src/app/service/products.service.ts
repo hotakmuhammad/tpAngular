@@ -14,4 +14,9 @@ export class ProductsService {
   public getProducts(): Observable<IProducts[]> {
     return this.httpClient.get<IProducts[]>(this.baseUrl);
   }
+
+
+
+
+
 }
