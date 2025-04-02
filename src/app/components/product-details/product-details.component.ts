@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,13 +11,12 @@ export class ProductDetailsComponent  {
 
   // private id!:number;
   id !: number;
-  name !: string;
+  
+  
+  // @Input() name!: string;
+  // @Input() description!: string;
 
   constructor(private route: ActivatedRoute) {
     this.id = this.route.snapshot.params['id'];
-  }
-
-  
-
-
+  } 
 }

@@ -9,6 +9,7 @@
             <a [routerLink]="['/products', product.id]" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
                 {{ product.name }}
             </a>
+            <p class="text-gray-600 mt-2">Description: {{ product.description }}</p>
         </div>
     </li>
     </ul>
