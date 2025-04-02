@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent  {
 
-  // private id!:number;
+  // Product information
   id !: number;
   
   

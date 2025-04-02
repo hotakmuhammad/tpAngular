@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
+ 
 
-
-  constructor() {
-  }
-
+  productId !: number;
   products = [
     { id: 1, name: 'Product 1', price: 100, description: 'Description of Product 1' },
     { id: 2, name: 'Product 2', price: 200, description: 'Description of Product 2' },
@@ -26,4 +26,18 @@ export class ProductsComponent {
     { id: 9, name: 'Product 9', price: 900, description: 'Description of Product 9' },
     { id: 10, name: 'Product 10', price: 1000, description: 'Description of Product 10' }
   ];
+
+  constructor(private router: Router) {
+
+  }
+
+  // Navigate to product details page
+  findProduct() {
+    if(this.productId !== null && this.productId >= 0) {
+       this.router.navigate(['/products', this.productId]);
+      
+    }
+  }
 }
+
+
