@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   productParDawan: IProductParDawan[] = [];
   productId !: number;
   searchValue: string = ''
+  isSearchInputVisible: boolean = false;
 
   constructor(
     private router: Router,
@@ -68,10 +69,15 @@ export class ProductsComponent implements OnInit {
   searchProduct() {
     const searchValue = this.searchValue.toLowerCase();
     this.products = this.products.filter(product => product.name?.toLocaleLowerCase().includes(searchValue));
-    this.productParDawan = this.productParDawan.filter(product => product.title?.toLocaleLowerCase().includes(searchValue));
+    this.productParDawan = this.productParDawan.filter(product => product.title?.toLocaleLowerCase().includes(searchValue) 
+      || product.description?.toLocaleLowerCase().includes(searchValue)
+      || product.slug?.toLocaleLowerCase().includes(searchValue));
   }
  
-
+  toggleSearch(e: Event): void {
+    e.preventDefault();
+    this.isSearchInputVisible = !this.isSearchInputVisible;
+  }
 
 }
 
