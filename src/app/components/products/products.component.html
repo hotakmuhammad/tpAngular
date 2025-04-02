@@ -2,7 +2,7 @@
     
     <div class="myFormContainer mt-6 mb-6">
         <div
-        class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+            class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
 
     
             <div class="flex flex-col">
@@ -22,32 +22,59 @@
             </button>
         </div>
     </div>
-    <h2 class="text-xl font-bold mb-4">Liste des Produits</h2>
-    <ul>
-        <li *ngFor="let product of products">
-            <div class="m-4 p-4">
 
+    <div>
+        <div class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+            <div class="flex flex-col">
+                <input 
+                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none"
+                    [(ngModel)]="searchValue"
+                    (input)="searchProduct()"
+                    placeholder="Search an item"
+                    type="text" name="searchProduct" id="searchProduct">
+
+            </div>
+
+        </div>
+    </div>
+    <h2 class="text-xl font-bold mb-4">Liste des Produits</h2>
+
+    <!--  with @for -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        @for (product of productParDawan; track product.id) {
+            <div class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
+            <img src="{{ product.image }}" class="w-32 h-32 object-cover rounded-md mx-auto" alt="{{ product.title }}">
+            <div class="mt-4">
+                <p class="text-gray-600"><strong>Id:</strong> {{ product.id }}</p>
+                <p class="text-gray-600"><strong>Price:</strong> {{ product.price }} €</p>
+                <p class="text-gray-600"><strong>Description:</strong> {{ product.description | slice:0:50 }} ...</p>
+                <p class="text-gray-600"><strong>Slug:</strong> {{ product.slug | slice:0:5 }} ...</p>
+                <p class="text-gray-600"><strong>Category:</strong> {{ product.category }}</p>
+            </div>
+            <div class="mt-4">
+                <a [routerLink]="['/products', product.id]" 
+                class="block text-center bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
+                {{ product.title | slice:0:10 }} ...
+                </a>
+            </div>
+            </div>
+        }
+    </div>
+
+    <!-- With ngFor -->
+    <div *ngFor="let product of products"
+        class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
+
+        <div class="m-4 p-4">
+            <p class="text-gray-600">Price: {{ product.price }} €</p>
+            <p class="text-gray-600">Number : {{ product.number }}</p>
+            <div class="mt-4">
                 <a [routerLink]="['/products', product.id]" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
                     {{ product.name }}
                 </a>
-                <p class="text-gray-600 mt-2">Price: {{ product.price }} €</p>
-                <p class="text-gray-600 mt-2">Number : {{ product.number }}</p>
-            </div>
-        </li>
-    </ul>
-
-<!-- or with @for -->
-    @for (product of productParDawan; track product.id) {
-        <ul>
-            <li class="p-2 m-2">Id :{{ product.id }}</li>
-            <a [routerLink]="['/products', product.id]" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
-                {{ product.title }}
-            </a>
-            <p class="text-gray-600 mt-2">Price: {{ product.price }} €</p>
-            <img src="{{ product.image }}" class="w-32 h-32 object-cover rounded-md" alt="{{ product.title }}">
-            <p class="text-gray-600 mt-2">Description: {{ product.description }}</p>
-            <p>Slug : {{ product.slug }}</p>
-            <p class="text-gray-600 mt-2">Category : {{ product.category }}</p>
-        </ul>
-    }
+            </div> 
+        </div>
+    </div>
+     
 </div>

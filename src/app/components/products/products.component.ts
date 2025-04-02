@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   products: IProducts[] = [];
   productParDawan: IProductParDawan[] = [];
   productId !: number;
-
+  searchValue: string = ''
 
   constructor(
     private router: Router,
@@ -36,22 +36,10 @@ export class ProductsComponent implements OnInit {
   // Navigate to product details page
   findProduct() {
     if(this.productId !== null && this.productId >= 0) {
-       this.router.navigate(['/products', this.productId]);
+      this.router.navigate(['/products', this.productId]);
       
     }
   }
-
-  loadProducts() {
-    this.productsService.getProducts()
-      .subscribe({
-        next: (response: any) => 
-          {console.log(response)
-         this.products = response},
-        error: (error: any) => console.log(error),
-        complete: () => console.log('Products loaded successfully')
-      }) 
-  }
-
   loadProductsParDawan() {
     this.productParDawanService.getProductsParDawan()
     .subscribe({
@@ -64,6 +52,25 @@ export class ProductsComponent implements OnInit {
       
     })
   }
+
+
+  loadProducts() {
+    this.productsService.getProducts()
+      .subscribe({
+        next: (response: any) => 
+          {console.log(response)
+        this.products = response},
+        error: (error: any) => console.log(error),
+        complete: () => console.log('Products loaded successfully')
+      }) 
+  }
+
+  searchProduct() {
+    const searchValue = this.searchValue.toLowerCase();
+    this.products = this.products.filter(product => product.name?.toLocaleLowerCase().includes(searchValue));
+    this.productParDawan = this.productParDawan.filter(product => product.title?.toLocaleLowerCase().includes(searchValue));
+  }
+ 
 
 
 }
