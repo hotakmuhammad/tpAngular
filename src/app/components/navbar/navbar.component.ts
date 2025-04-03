@@ -16,6 +16,7 @@ export class NavbarComponent {
     { name: 'Home',route: '/' },
     {name: 'Produits', route: '/products'},
     {name: 'Boutique', route: '/boutique'},
-    {name: 'PokeMon', route: '/poke-mon'}
+    {name: 'PokeMon', route: '/poke-mon'},
+    {name: 'Login', route: '/auth'}
   ]
 }

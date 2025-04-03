@@ -9,16 +9,18 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @for (item of pokemonList; track item.id) {
                     <div class="p-4 bg-white rounded-lg shadow-md border border-gray-200 text-center">
-                        <img [src]="item.sprites?.front_default" alt="{{item.name}}" class="w-24 h-24 mx-auto mb-3">
+                        <div class="w-32 h-32">
+                            <img [src]="item.sprites?.front_default" alt="{{item.name}}" class="mx-auto mb-3">
+                        </div>
     
                         <h2 class="text-xl font-semibold text-gray-800 capitalize">
-                            #{{ item.id }} - {{ item.name }}
+                            #{{ item.id }} <br> {{ item.name }}
                         </h2>
     
 
                         <div class="mt-2 flex justify-center gap-2">
                             @for (type of item.types; track type.type.name) {
-                                <span class="px-3 py-1 text-sm font-medium rounded-lg"
+                                <span class="border border-gray-300 px-3 py-1 text-sm font-medium rounded-lg"
                                       >
                                     {{ type.type.name }}
                                 </span>
