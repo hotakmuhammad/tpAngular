@@ -11,6 +11,7 @@ import { DescriptionComponent } from './components/product-details/sigleProductD
 import { FicheTechniqueComponent } from './components/product-details/sigleProductDetail/fiche-technique/fiche-technique.component';
 import { DonnerAvisComponent } from './components/product-details/sigleProductDetail/donner-avis/donner-avis.component';
 import { DemandeDevisComponent } from './components/product-details/sigleProductDetail/demande-devis/demande-devis.component';
+import { PokemonComponent } from './components/pokemon/pokemon/pokemon.component';
 
 
 
@@ -67,11 +68,11 @@ export const routes: Routes = [
                 path: 'information',
                 component: InformationComponent
             }
-        ]
-
-   
-
-
+        ] 
     },
+    {
+        path: 'poke-mon',
+        component: PokemonComponent
+    }
 
 ];
