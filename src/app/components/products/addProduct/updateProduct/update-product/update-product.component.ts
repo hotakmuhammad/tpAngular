@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IProductParDawan } from '../../../../../interface/IProductParDawan';
 
@@ -15,6 +15,7 @@ export class UpdateProductComponent implements OnChanges{
   updateForm: FormGroup
 
   @Input() product?: IProductParDawan
+  @Output() passDataToParent = new EventEmitter<IProductParDawan>();
 
   constructor() {
     this.updateForm = new FormGroup({
@@ -61,5 +62,14 @@ export class UpdateProductComponent implements OnChanges{
   // }
 
   onSubmit() {
+    if(this.updateForm.valid && this.product) {
+      const response: IProductParDawan = {...this.product, ...this.updateForm.value};
+      this.passDataToParent.emit(response);
+
+    }
+  }
+
+  handleUpdateProduct() {
+      this.passDataToParent.emit(this.updateForm.value);
   }
 }

@@ -61,11 +61,13 @@
             </div>
         </section>
     }
-    <button (click)="handleUpdateProduct()">Show form to update product</button>
+    <button 
+        class="w-full cursor:pointer bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 mt-4"
+        (click)="handleUpdateProduct()">Show form to update product</button>
     @if (displayProduct) {
 
-        <div>
-            <app-update-product [product]="product"></app-update-product>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 mt-4">
+            <app-update-product [product]="product" (passDataToParent)="updateMainProduct($event)"></app-update-product>
         </div>
     }
 </div>

@@ -17,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
   id !: number; 
   product?: IProductParDawan; 
   displayProduct: boolean = false;
+  // service?: ProductParDawanService;
 
   constructor(private route: ActivatedRoute, private service: ProductParDawanService) {
     this.id = this.route.snapshot.params['id'];
@@ -33,4 +34,14 @@ export class ProductDetailsComponent implements OnInit {
   handleUpdateProduct() {
     this.displayProduct = !this.displayProduct
   }
+
+  updateMainProduct(product: IProductParDawan) {
+    // console.log('Data recieved from child form', product);
+    this.service.updateProductParDawan(product).subscribe((response) => {
+      console.log('Product updated successfully', response);
+      this.product = response;
+      this.displayProduct = false;
+      this.loadProduct();
+    }
+  )}
 } 
