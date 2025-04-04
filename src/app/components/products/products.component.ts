@@ -7,11 +7,12 @@ import { IProducts } from '../../interface/IProducts';
 import { IProductParDawan } from '../../interface/IProductParDawan';
 
 import { ProductParDawanService } from '../../service/pardawan/product-par-dawan.service';
+import { AddProductComponent } from "./addProduct/add-product/add-product.component";
 
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, AddProductComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
