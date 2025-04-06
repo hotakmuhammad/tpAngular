@@ -67,9 +67,11 @@ export class PokemonComponent implements OnInit {
   }
   previousPage(): void {
     this.offset -= this.limit;
-    if(this.offset <0) {
-      this.loadPokemonItems();
+    if(this.offset < 0) {
+      this.offset = 0;
     }
+      this.loadPokemonItems();
+   
   }
 
   get paginationInfo(): { currentPage: number, lastPage: number }{
