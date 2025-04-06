@@ -14,7 +14,7 @@ export class PokeMonService {
   constructor(private httpClient: HttpClient) { }
 
   public getPokemonItems(): Observable<IResponsePokeMon> {
-    return this.httpClient.get<IResponsePokeMon>(`${this.baseUrl}?limit=20&offset=1`);
+    return this.httpClient.get<IResponsePokeMon>(`${this.baseUrl}`);
   }
 
   public getPokemonDetails(url: string): Observable<IPokemonDetails> {

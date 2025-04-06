@@ -16,6 +16,12 @@ export class PokemonComponent implements OnInit {
 
   pokemonList: IPokemonDetails[] = [];
 
+  totalPokemns: number = 0;
+
+  limit: number = 10;
+  offset: number = 0;
+
+
   constructor (
 
     private pokemonService: PokeMonService,){
@@ -54,6 +60,22 @@ export class PokemonComponent implements OnInit {
     })
   }
 
+  nextPage(): void {
+    this.offset += this.limit;
+    this.loadPokemonItems();
 
+  }
+  previousPage(): void {
+    this.offset -= this.limit;
+    if(this.offset <0) {
+      this.loadPokemonItems();
+    }
+  }
 
+  get paginationInfo(): { currentPage: number, lastPage: number }{
+
+    const currentPage = Math.ceil(this.offset / this.limit) + 1;
+    const lastPage = Math.ceil(this.totalPokemns / this.limit);
+    return {currentPage, lastPage};
+  }
 }

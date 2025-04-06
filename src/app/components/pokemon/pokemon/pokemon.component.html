@@ -36,6 +36,29 @@
             </div>
         </div>
     }
+
+    <section class="flex justify-center items-center mt-6 mb-6 gap-10">
+        <div class="text-center space-y-2">
+          <button 
+            class="w-32 bg-yellow-500 text-white font-semibold px-5 py-2 rounded-xl shadow-md transition duration-300 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+            (click)="previousPage()"
+          >
+            Previous
+          </button>
+          <p class="text-gray-700 text-sm mt-1">Page: {{ paginationInfo.currentPage }}</p>
+        </div>
+      
+        <div class="text-center space-y-2">
+          <button 
+            class="w-32 bg-yellow-500 text-white font-semibold px-5 py-2 rounded-xl shadow-md transition duration-300 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+            (click)="nextPage()"
+          >
+            Next
+          </button>
+          <p class="text-gray-700 text-sm mt-1">Dernière page : {{ paginationInfo.lastPage }}</p>
+        </div>
+      </section>
+      
         @if (pokemon) {
         <div class="m-4 p-4 align-middle text-center">
 

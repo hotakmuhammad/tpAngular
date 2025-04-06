@@ -146,12 +146,12 @@
     },
     {
       "id": "2",
-      "title": "Pl,;n;vh",
-      "price": 800,
-      "image": "https://imgs.search.brave.com/5vHwQ_AmxozeHhs093xwyx2KQWHjB0SlsaxbxNrpT54/rs:fit:1200:750:1/g:ce/aHR0cHM6Ly9pbWcu/cGhvbmFuZHJvaWQu/Y29tLzIwMjEvMDIv/cHM1LWJ1Zy1ldHJh/bmdlLWluc3RhbGxh/dGlvbi5qcGc",
-      "description": "La PlayStation 5 est une console de jeux vidéo de salon développée par Sony Interactive Entertainment.",
-      "slug": "playstation-5",
-      "category": "Jehytjyt"
+      "title": "Aston Martin V12 Vantage Roadster",
+      "price": 550000,
+      "image": "https://lesvoitures.fr/wp-content/uploads/2022/08/V12_Vantage_Roadster_02-min-785x523.jpg",
+      "description": "Que les puristes de la conduite se réjouissent : la plus performante des Aston Martin en production, la Vantage V12 S, reçoit enfin une transmission manuelle, ainsi qu'un système d'infotainment et de navigation dernier cri pour l'aider à maintenir le cap. Signe que le constructeur est à l'écoute.",
+      "slug": "Car collection",
+      "category": "Sport's car"
     },
     {
       "id": "3",
@@ -163,12 +163,12 @@
       "category": "Jeux video"
     },
     {
-      "title": "hello",
-      "price": 4000,
-      "image": "image.png",
-      "description": "A small testing description",
-      "slug": "Slug",
-      "category": "new cat",
+      "title": "BMW M5 Beast",
+      "price": 450000,
+      "image": "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/67cb3be0c108d5001d41682b.png",
+      "description": "It was a crisp autumn afternoon, the kind where the air smells faintly of fallen leaves and the sky is a perfect shade of blue. The quiet suburban street was lined with trees, their golden leaves fluttering to the ground. But the tranquility was about to be shattered by the roar of an engine and the screech of tires.",
+      "slug": "Car",
+      "category": "Sprort's Car",
       "id": "4"
     },
     {
@@ -354,7 +354,7 @@
     {
       "id": "26",
       "title": "Sony WH-1000XM5",
-      "price": 349,
+      "price": 0,
       "image": "https://imgs.search.brave.com/5CVv3zNX93XZ53fj3tQEkJitW52phXs-19s9mGusaJ8/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/bm90ZWJvb2tjaGVj/ay5uZXQvZmlsZWFk/bWluL05vdGVib29r/cy9OZXdzL19uYzMv/ZG93bmxvYWRfMV83/XzguanBn",
       "description": "Le Sony WH-1000XM4 est un casque audio sans fil haut de gamme avec une réduction de bruit active et une qualité sonore exceptionnelle.",
       "slug": "sony-wh-1000xm4",

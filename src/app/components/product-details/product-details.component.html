@@ -39,10 +39,10 @@
         <div class="pt-4 pl-4 basis-5/6">
             <router-outlet></router-outlet>
         </div>
-    </section>
+    </section >
 
     @if (product) {
-        <section>
+        <section class="flex mt-4 mb-4 ">
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="flex">
                 <div class="flex-shrink-0">
@@ -62,7 +62,7 @@
         </section>
     }
     <button 
-        class="w-full cursor:pointer bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 mt-4"
+        class="cursor-pointer w-full cursor:pointer bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 mt-4"
         (click)="handleUpdateProduct()">Show form to update product</button>
     @if (displayProduct) {
 
