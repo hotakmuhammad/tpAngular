@@ -10,7 +10,7 @@ import { IProductParDawan } from '../../interface/IProductParDawan';
 export class ProductParDawanService {
 
 
-  private baseUrl: string = 'http://localhost:3001/dw_store';
+  private baseUrl: string = 'http://localhost:3000/dw_store';
  
   constructor(private httpClient: HttpClient) { }
 

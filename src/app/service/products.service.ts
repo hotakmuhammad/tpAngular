@@ -8,7 +8,7 @@ import { IProducts } from '../interface/IProducts';
 })
 export class ProductsService {
 
-  private baseUrl: string = 'http://localhost:3001/products';
+  private baseUrl: string = 'http://localhost:3000/products';
   constructor(private httpClient: HttpClient) { }
 
   public getProducts(): Observable<IProducts[]> {

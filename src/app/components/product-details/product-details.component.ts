@@ -28,7 +28,18 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   loadProduct() {
-    this.service.getProductsParDawanById(this.id).subscribe((response=> this.product = response));
+    this.service.getProductsParDawanById(this.id).subscribe({
+      next: (response) => {
+        if (!response) {
+          throw new Error(`No product found with ID: ${this.id}`);
+        }
+        this.product = response;
+      },
+      error: () => {
+        alert('Product not found!');
+        
+      }
+    });
   }
 
   handleUpdateProduct() {

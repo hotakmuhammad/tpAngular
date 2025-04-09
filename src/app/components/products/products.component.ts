@@ -35,22 +35,37 @@ export class ProductsComponent implements OnInit {
       this.loadProducts();
       this.loadProductsParDawan();
   }
+
+  loading = false;
   // Navigate to product details page
   findProduct() {
-    if(this.productId !== null && this.productId >= 0) {
-      this.router.navigate(['/products', this.productId]);
-      
-    }
+    if(this.productId === null && this.productId === undefined || isNaN(this.productId)) {
+      return;
+    } 
+    this.loading = true;
+    this.productParDawanService.getProductsParDawanById(this.productId)
+    .subscribe({
+      next: (response) => {
+        this.loading = false;
+        if(response) {
+          this.router.navigate(['/products', this.productId]);
+        } else {
+          alert(`Product not found! , ${this.productId}`);
+        }
+      },
+      error: () => {
+        this.loading = false;
+        alert(`Error: product with id ${this.productId} not found!`);
+      }
+    })
   }
   loadProductsParDawan() {
     this.productParDawanService.getProductsParDawan()
     .subscribe({
       next: (response: any) => 
-        
-        {console.log(response)
-        this.productParDawan = response},
+        this.productParDawan = response,
         error: (error: any) => console.log(error),
-        complete: () => console.log('Products loaded successfully')
+        // complete: () => console.log('Products loaded successfully')
       
     })
   }
@@ -60,10 +75,9 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts()
       .subscribe({
         next: (response: any) => 
-          {console.log(response)
-        this.products = response},
+        this.products = response,
         error: (error: any) => console.log(error),
-        complete: () => console.log('Products loaded successfully')
+        // complete: () => console.log('Products loaded successfully')
       }) 
   }
 
