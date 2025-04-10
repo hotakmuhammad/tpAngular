@@ -27,76 +27,73 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productsService: ProductsService, 
+    private productsService: ProductsService,
     private productParDawanService: ProductParDawanService) {
 
   }
 
   ngOnInit(): void {
-      this.loadProducts();
-      this.loadProductsParDawan();
+    this.loadProducts();
+    this.loadProductsParDawan();
   }
 
   loading = false;
   // Navigate to product details page
   findProduct() {
-    if(this.productId === null && this.productId === undefined || isNaN(this.productId)) {
+    if (this.productId === null && this.productId === undefined || isNaN(this.productId)) {
       return;
-    } 
+    }
     this.loading = true;
     this.productParDawanService.getProductsParDawanById(this.productId)
-    .subscribe({
-      next: (response) => {
-        this.loading = false;
-        if(response) {
-          this.router.navigate(['/products', this.productId]);
-        } else {
-          alert(`Product not found! , ${this.productId}`);
+      .subscribe({
+        next: (response) => {
+          this.loading = false;
+          if (response) {
+            this.router.navigate(['/products', this.productId]);
+          } else {
+            alert(`Product not found! , ${this.productId}`);
+          }
+        },
+        error: () => {
+          this.loading = false;
+          alert(`Error: product with id ${this.productId} not found!`);
         }
-      },
-      error: () => {
-        this.loading = false;
-        alert(`Error: product with id ${this.productId} not found!`);
-      }
-    })
+      })
   }
   loadProductsParDawan() {
     this.productParDawanService.getProductsParDawan()
-    .subscribe({
-      next: (response: any) => 
-        this.productParDawan = response,
+      .subscribe({
+        next: (response: any) =>
+          this.productParDawan = response,
         error: (error: any) => console.log(error),
         // complete: () => console.log('Products loaded successfully')
-      
-    })
+
+      })
   }
 
 
   loadProducts() {
     this.productsService.getProducts()
       .subscribe({
-        next: (response: any) => 
-        this.products = response,
+        next: (response: any) =>
+          this.products = response,
         error: (error: any) => console.log(error),
         // complete: () => console.log('Products loaded successfully')
-      }) 
+      })
   }
 
-  searchProduct() {
-    const searchValue = this.searchValue.toLowerCase();
-    this.products = this.products.filter(product => product.name?.toLocaleLowerCase().includes(searchValue));
-    this.productParDawan = this.productParDawan.filter(product => product.title?.toLocaleLowerCase().includes(searchValue) 
-      || product.description?.toLocaleLowerCase().includes(searchValue)
-      || product.slug?.toLocaleLowerCase().includes(searchValue));
-  }
- 
   toggleSearch(e: Event): void {
     e.preventDefault();
     this.isSearchInputVisible = !this.isSearchInputVisible;
   }
-
-
-
+  searchProduct() {
+    const searchValue = this.searchValue.toLowerCase();
+    this.products = this.products.filter(product => product.name?.toLocaleLowerCase().includes(searchValue));
+    this.productParDawan = this.productParDawan.filter(product => product.title?.toLocaleLowerCase().includes(searchValue)
+      || product.description?.toLocaleLowerCase().includes(searchValue)
+      || product.slug?.toLocaleLowerCase().includes(searchValue));
+  }
+  
   toggleAddProduct(e: Event): void {
     e.preventDefault();
     this.isAddProductVisible = !this.isAddProductVisible;

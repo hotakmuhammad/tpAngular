@@ -1,24 +1,19 @@
 <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md pt-5 mt-5">
-    
-    <div class="myFormContainer mt-6 mb-6">
-        <div
-            class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
 
-    
+    <div class="myFormContainer mt-6 mb-6">
+        <div class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+
+
             <div class="flex flex-col">
                 <label for="productId" class="text-gray-700 font-medium">Product Id : </label>
-                <input 
-                [(ngModel)]="productId"
-                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
-                    type="number" name="productId" id="productId"
-                >
+                <input [(ngModel)]="productId"
+                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none"
+                    type="number" name="productId" id="productId">
             </div>
-    
-            <button 
-            (click)="findProduct()"
-                class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300"
-            >
-            {{ loading ? 'Loading...' : 'Find Product' }}
+
+            <button (click)="findProduct()"
+                class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300">
+                {{ loading ? 'Loading...' : 'Find Product' }}
             </button>
         </div>
     </div>
@@ -29,35 +24,27 @@
                 <div class="flex gap-4">
 
                     <p>Search </p>
-                    <input 
-                        (change)="toggleSearch($event)"
-                        type="checkbox" name="checkbox" id="checkbox">
+                    <input (change)="toggleSearch($event)" type="checkbox" name="checkbox" id="checkbox">
                 </div>
-                
-                <input 
-                    *ngIf="isSearchInputVisible"
+
+                <input *ngIf="isSearchInputVisible"
                     class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none"
-                    [(ngModel)]="searchValue"
-                    (input)="searchProduct()"
-                    placeholder="Search an item"
-                    type="text" name="searchProduct" id="searchProduct">
+                    [(ngModel)]="searchValue" (input)="searchProduct()" placeholder="Search an item" type="text"
+                    name="searchProduct" id="searchProduct">
 
 
             </div>
 
-            <div class="flex gap-4">
-        
+            <div class="flex gap-4"> 
                 <p>Add product form</p>
-                <input 
-                    (change)="toggleAddProduct($event)"
-                    type="checkbox" name="checkbox" id="checkbox">
+                <input (change)="toggleAddProduct($event)" type="checkbox" name="checkbox" id="checkbox">
             </div>
         </div>
     </div>
 
     <!-- toggle add product -->
     <div *ngIf="isAddProductVisible" class="mt-6 mb-6">
-        <app-add-product ></app-add-product>
+        <app-add-product></app-add-product>
     </div>
     <h2 class="text-xl font-bold mb-4">Liste des Produits</h2>
 
@@ -65,7 +52,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
         @for (product of productParDawan; track product.id) {
-            <div class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
             <img src="{{ product.image }}" class="w-32 h-32 object-cover rounded-md mx-auto" alt="{{ product.title }}">
             <div class="mt-4">
                 <p class="text-gray-600"><strong>Id:</strong> {{ product.id }}</p>
@@ -75,28 +62,28 @@
                 <p class="text-gray-600"><strong>Category:</strong> {{ product.category }}</p>
             </div>
             <div class="mt-4">
-                <a [routerLink]="['/products', product.id]" 
+                <a [routerLink]="['/products', product.id]"
                     class="block text-center bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
                     {{ product.title | slice:0:10 }} ...
                 </a>
             </div>
-            </div>
+        </div>
         }
     </div>
 
     <!-- With ngFor -->
-    <div *ngFor="let product of products"
-        class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
+    <div *ngFor="let product of products" class="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
 
         <div class="m-4 p-4">
             <p class="text-gray-600">Price: {{ product.price }} €</p>
             <p class="text-gray-600">Number : {{ product.number }}</p>
             <div class="mt-4">
-                <a [routerLink]="['/products', product.id]" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
+                <a [routerLink]="['/products', product.id]"
+                    class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 hover:underline">
                     {{ product.name }}
                 </a>
-            </div> 
+            </div>
         </div>
     </div>
     <router-outlet></router-outlet>
-</div>
+</div> 
