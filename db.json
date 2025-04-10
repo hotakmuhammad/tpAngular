@@ -386,6 +386,15 @@
       "description": "Le Samsung Galaxy S21 Ultra est un smartphone haut de gamme avec un écran AMOLED dynamique de 6,8 pouces, une batterie longue durée et un appareil photo de qualité professionnelle.",
       "slug": "samsung-galaxy-s21-ultra",
       "category": "Smartphone"
+    },
+    {
+      "id": "95b2",
+      "title": "BMW i8",
+      "price": 1585000,
+      "image": "https://www.exoticcarhacks.com/wp-content/uploads/2024/10/ab912c9e1cbdd13c1d79be89bfd9eb60.jpg",
+      "description": "When the BMW i8 was first introduced in 2014, it represented a groundbreaking moment for BMW, it was eco-conscious engineering with the idea of a sports car. As part of BMW’s visionary \"i\" sub-brand, the i8 was more than just a new model; it was for the future of hybrid mobility, where performance and sustainability could coexist harmoniously.",
+      "slug": "Cars",
+      "category": "Sport's car"
     }
   ]
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductParDawanService } from '../../../../service/pardawan/product-par-dawan.service';
 import { Router } from '@angular/router';
 import { IProductParDawan } from '../../../../interface/IProductParDawan';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -12,27 +12,29 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class AddProductComponent implements OnInit{
 
-
-
-  postForm: FormGroup = new FormGroup({
-    title: new FormControl(['', Validators.required]) ,
-    price: new FormControl (['', [Validators.required, Validators.min(0)]]),
-    image: new FormControl ([null, Validators.required]),
-    description: new FormControl (['', Validators.required]),
-    slug: new FormControl (['', Validators.required]),
-    category: new FormControl (['', Validators.required])
-  });
-
-
+  addProduct!: FormGroup;
+  // postForm!: FormGroup
   productPardawan: IProductParDawan[] =[];
   constructor(
-    formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private productPardawanService: ProductParDawanService,) {
 
   }
+ 
+
+  
   ngOnInit(): void {
-    // this.postForm = this.formBuilder.group
+   
+    this.addProduct = this.formBuilder.group({
+      title:['', Validators.required],
+      price:['', [Validators.required, Validators.min(0)]],
+      image: [null, Validators.required],
+      description: ['', Validators.required],
+      slug: ['', Validators.required],
+      category: ['', Validators.required]
+    })
+
   }
 
   postProduct(product: IProductParDawan) {
@@ -50,22 +52,13 @@ export class AddProductComponent implements OnInit{
   }
 
   onSubmit() {
-  //   if(this.postForm.valid) {
-  //     const formData = new FormData();
-  //     formData.append('title', this.postForm.get('title').value);
-  //     formData.append('price', this.postForm.get('price').value);
-  //     formData.append('image', this.postForm.get('image').value);
-  //     formData.append('description', this.postForm.get('description').value);
-  //     formData.append('slug', this.postForm.get('slug').value);
-  //     formData.append('category', this.postForm.get('category').value)
-
-  //     this.postProduct(formData)
-  //     .subscribe({
-  //       next: response => console.log('Product added :', response),
-  //       error: error => console.log('Error : ', error),
-  //       complete: () => this.console.log('Product submission completed')
-  //     })
-  //   }
+    if(this.addProduct.valid) {
+      const productData: IProductParDawan = this.addProduct.value;
+      this.postProduct(productData);
+      this.addProduct.reset();
+    }else{
+      console.log('Form is invalid');
+    }
 
 
   }

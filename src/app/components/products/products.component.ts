@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
   productId !: number;
   searchValue: string = ''
   isSearchInputVisible: boolean = false;
+  isAddProductVisible: boolean = false;
 
   constructor(
     private router: Router,
@@ -93,6 +94,14 @@ export class ProductsComponent implements OnInit {
     e.preventDefault();
     this.isSearchInputVisible = !this.isSearchInputVisible;
   }
+
+
+
+  toggleAddProduct(e: Event): void {
+    e.preventDefault();
+    this.isAddProductVisible = !this.isAddProductVisible;
+  }
+
 
 }
 

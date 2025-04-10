@@ -33,6 +33,7 @@
                         (change)="toggleSearch($event)"
                         type="checkbox" name="checkbox" id="checkbox">
                 </div>
+                
                 <input 
                     *ngIf="isSearchInputVisible"
                     class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none"
@@ -44,12 +45,19 @@
 
             </div>
 
+            <div class="flex gap-4">
+        
+                <p>Add product form</p>
+                <input 
+                    (change)="toggleAddProduct($event)"
+                    type="checkbox" name="checkbox" id="checkbox">
+            </div>
         </div>
     </div>
 
     <!-- toggle add product -->
-    <div>
-        <app-add-product></app-add-product>
+    <div *ngIf="isAddProductVisible" class="mt-6 mb-6">
+        <app-add-product ></app-add-product>
     </div>
     <h2 class="text-xl font-bold mb-4">Liste des Produits</h2>
 

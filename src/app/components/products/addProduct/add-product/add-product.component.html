@@ -3,7 +3,7 @@
 <h1>Add Product </h1>
 <form 
 
-    [formGroup]="postForm"
+    [formGroup]="addProduct"
     (ngSubmit)="onSubmit()"
 
 
@@ -28,7 +28,7 @@
         <!-- image -->
         <div class="flex flex-col">
             <input type="text" id="title"
-                formControlName="title"
+                formControlName="image"
                 class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
                 placeholder="Add an image">
         </div>
@@ -54,7 +54,8 @@
                 placeholder="Category">
         </div>
     </div>
-        <button type="submit" 
+        <button 
+
         class="w-full cursor:pointer bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300">
             Add your product
         </button>
