@@ -226,15 +226,6 @@
       "category": "Souris"
     },
     {
-      "id": "18",
-      "title": "Razer DeathAdder Elite",
-      "price": 70,
-      "image": "https://assets2.razerzone.com/images/da10m/carousel/razer-death-adder-gallery-23.png",
-      "description": "La Razer DeathAdder Elite est une souris de jeu ergonomique avec une précision rapide et un design confortable.",
-      "slug": "razer-deathadder-elite",
-      "category": "Souris"
-    },
-    {
       "id": "19",
       "title": "HyperX Cloud II",
       "price": 100,

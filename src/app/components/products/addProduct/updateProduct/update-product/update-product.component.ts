@@ -45,22 +45,7 @@ export class UpdateProductComponent implements OnChanges{
             })
           }
     }
-  }
-  // ngOnInit(): void {
-  //   console.log('Product', this.product)
-  //   if(this.product) {
-  //     this.updateForm.patchValue({
-  //       id: this.product.id,
-  //       title: this.product.title,
-  //       price: this.product.price,
-  //       image: this.product.image,
-  //       description: this.product.description,
-  //       slug: this.product.slug,
-  //       category: this.product.category
-  //     })
-  //   }
-  // }
-
+  } 
   onSubmit() {
     if(this.updateForm.valid && this.product) {
       const response: IProductParDawan = {...this.product, ...this.updateForm.value};
