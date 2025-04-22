@@ -60,6 +60,14 @@
                 </div>
             </div>
         </section>
+        <!-- <div *ngFor="let product of products"> -->
+
+            <button 
+            (click)="handleDeleteProduct(product)"
+            
+            class="cursor-pointer w-full cursor:pointer bg-red-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 mt-4"
+            >Delete product</button>
+        <!-- </div> -->
     }
     <button 
         class="cursor-pointer w-full cursor:pointer bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300 mt-4"
@@ -70,4 +78,7 @@
             <app-update-product [product]="product" (passDataToParent)="updateMainProduct($event)"></app-update-product>
         </div>
     }
+
+
+
 </div>

@@ -26,7 +26,10 @@ export class ProductParDawanService {
     return this.httpClient.put<IProductParDawan>(`${this.baseUrl}/${product.id}`, product);
   }
 
-
+  // Delete product
+  deleteProductPardawan(id: number) :Observable<IProductParDawan> {
+    return this.httpClient.delete<IProductParDawan>(`${this.baseUrl}/${id}`)
+  }
   // Add product
 
   public addProduct(product: IProductParDawan): Observable<IProductParDawan> {

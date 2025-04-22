@@ -16,7 +16,7 @@ export class UpdateProductComponent implements OnChanges{
 
   @Input() product?: IProductParDawan
   @Output() passDataToParent = new EventEmitter<IProductParDawan>();
-
+  @Output() passDataToParentDelete = new EventEmitter<IProductParDawan>();
   constructor() {
     this.updateForm = new FormGroup({
    
