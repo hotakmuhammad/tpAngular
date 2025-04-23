@@ -17,6 +17,6 @@ export class NavbarComponent {
     {name: 'Produits', route: '/products'},
     {name: 'Boutique', route: '/boutique'},
     {name: 'PokeMon', route: '/poke-mon'},
-    {name: 'Login', route: '/auth'}
+    {name: 'Profile', route: '/auth', icon: 'fa-solid fa-user'},
   ]
 }

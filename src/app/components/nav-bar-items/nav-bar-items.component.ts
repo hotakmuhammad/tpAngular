@@ -11,5 +11,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavBarItemsComponent {
 
   constructor() { }
-  @Input() navBarItems: { name: string, route: string }[] = [];
+  @Input() navBarItems: { name: string, route: string, icon?: string }[] = [];
 }

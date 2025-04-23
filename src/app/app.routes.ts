@@ -13,6 +13,7 @@ import { DonnerAvisComponent } from './components/product-details/sigleProductDe
 import { DemandeDevisComponent } from './components/product-details/sigleProductDetail/demande-devis/demande-devis.component';
 import { PokemonComponent } from './components/pokemon/pokemon/pokemon.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 
 
@@ -77,7 +78,11 @@ export const routes: Routes = [
     },
     {
         path: 'auth',
-        component: LoginFormComponent
+        component: LoginFormComponent,
+    },
+    {
+        path: 'singup',
+        component: RegistrationFormComponent
     }
 
 ];
