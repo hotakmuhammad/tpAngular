@@ -1,7 +1,9 @@
 export interface IUsers {
-    id: number;
+    // id: number;
     name: string;
+    firstName: string;
     email: string;
     password: string;
-    createdAt: string
+    confirmPassword?: string,
+    createdAt?: string
 }
